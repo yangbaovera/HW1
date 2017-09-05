@@ -12,6 +12,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ISLR)
+library(ggplot2)
 # add other libraries here
 ```
 
@@ -25,7 +26,7 @@ data(Auto)
 1. Create a summary of the data.  How many variables have missing data?
 
 ```{r}
-
+summary(Auto)
 ```
 
 
@@ -73,6 +74,12 @@ on your findings.  _Try adding a caption to your figure_
 8.  Use the `lm()` function to perform a simple linear 
 regression with `mpg` as the response and `horsepower` as the
 predictor. Use the `summary()` function to print the results.
+
+```{r include=TRUE}
+horsepower.lm=lm(mpg ~ horsepower, data=Auto)
+summary(horsepower.lm)
+```
+
 Comment on the output.
 For example:
     (a) Is there a relationship between the predictor and the response?
@@ -87,7 +94,7 @@ intervals?   (see `help(predict)`) Provide interpretations of these for the card
 
 9. Plot the response and the predictor using `ggplot`.  Add to the plot a line showing the least squares regression line. 
 ```{r}
-
+ggplot(horsepower.lm)
 ```
 
 10. Use the `plot()` function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the model regarding assumptions for using a simple linear regression.  
